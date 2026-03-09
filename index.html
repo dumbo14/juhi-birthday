@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Happy Birthday Juhi 🎂</title>
+
+<style>
+
+body{
+background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+font-family: Arial;
+text-align:center;
+padding:40px;
+}
+
+h1{
+font-size:60px;
+color:white;
+margin-bottom:10px;
+}
+
+h2{
+color:white;
+margin-bottom:50px;
+}
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+}
+
+.memory{
+width:220px;
+}
+
+.memory img{
+width:220px;
+border-radius:20px;
+cursor:pointer;
+box-shadow:0px 8px 20px rgba(0,0,0,0.3);
+transition:transform 0.3s;
+}
+
+.memory img:hover{
+transform:scale(1.05);
+}
+
+.date{
+margin-top:10px;
+font-weight:bold;
+color:white;
+}
+
+#confetti{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+}
+
+.popup-content{
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(12px);
+padding:35px;
+border-radius:22px;
+max-width:450px;
+text-align:center;
+font-size:18px;
+line-height:1.6;
+color:#333;
+box-shadow:0px 15px 35px rgba(0,0,0,0.3);
+border:1px solid rgba(255,255,255,0.4);
+}
+
+.close{
+cursor:pointer;
+font-size:20px;
+float:right;
+}
+
+.timeline{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:20px;
+margin-top:40px;
+}
+
+.memory img{
+width:260px;
+border-radius:20px;
+cursor:pointer;
+box-shadow:0px 10px 25px rgba(0,0,0,0.3);
+transition:transform 0.3s;
+}
+
+.memory img:hover{
+transform:scale(1.05);
+}
+
+.date{
+color:white;
+font-weight:bold;
+margin-top:8px;
+}
+
+.line{
+width:4px;
+height:40px;
+background:white;
+border-radius:2px;
+}
+.journey-text{
+color:white;
+font-weight:400;
+margin-top:10px;
+margin-bottom:40px;
+font-size:22px;
+}
+
+.final-section{
+margin-top:80px;
+text-align:center;
+}
+
+.final-section h2{
+color:white;
+font-size:28px;
+margin-bottom:20px;
+}
+
+.final-button{
+background:linear-gradient(135deg,#ff4e88,#ff9a9e);
+color:white;
+border:none;
+padding:15px 35px;
+font-size:18px;
+border-radius:25px;
+cursor:pointer;
+box-shadow:0px 8px 20px rgba(0,0,0,0.3);
+transition:transform 0.2s;
+}
+
+.final-button:hover{
+transform:scale(1.05);
+}
+
+.typing-text{
+white-space:pre-line;
+font-size:18px;
+line-height:1.6;
+}
+
+#start-screen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+z-index:9999;
+}
+
+#start-screen button{
+margin-top:30px;
+padding:15px 30px;
+font-size:20px;
+border:none;
+border-radius:25px;
+background:white;
+color:#ff4e88;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="start-screen">
+<h1>🎉 Tap to start the birthday surprise 🎉</h1>
+<button onclick="startSite()">Start</button>
+</div>
+
+<div id="main-site" style="display:none;">
+
+<canvas id="confetti"></canvas>
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closePopup()">✖</span>
+   <p id="popup-text" class="typing-text"></p>
+  </div>
+</div>
+
+<h1>HAPPY BIRTHDAY JUHI 🎉🎂💖</h1>
+<h2 class="journey-text">A little journey of how Juhi became my favourite person 💖</h2>
+
+<div class="timeline">
+
+<div class="memory">
+<img src="photo1.jpg" onclick="showMessage(1)">
+<p class="date">25 July 2024</p>
+</div>
+
+<div class="line"></div>
+
+<div class="memory">
+<img src="photo2.jpg" onclick="showMessage(2)">
+<p class="date">15 September 2024</p>
+</div>
+
+<div class="line"></div>
+
+<div class="memory">
+<img src="photo3.jpg" onclick="showMessage(3)">
+<p class="date">10 February 2025</p>
+</div>
+
+<div class="line"></div>
+
+<div class="memory">
+<img src="photo4.jpg" onclick="showMessage(4)">
+<p class="date">12 April 2025</p>
+</div>
+
+</div>
+
+<script>
+
+function startSite(){
+document.getElementById("start-screen").style.display = "none";
+document.getElementById("main-site").style.display = "block";
+}
+
+function showMessage(num){
+
+let message = "";
+
+if(num==1){
+message = `Our kind of first spontaneous outing jaha humne bahut confidently bina paiso ke golgappe kha liye🤪 the and laughed till our stomach hurt. Bahut mehnat kar karke ye vali side nikaali hai teri but i am really grateful ki aa gayi bahar finally.`;
+}
+
+if(num==2){
+message = `6 mahine pehle se hi booking kar li thi ki mere 18th bday pe toh aana hi padega tujhe and acha hua aa gayi we grew even closer and chidhane ke liye vo jigyasu vali picture jisme tu usko ghoor ghoor ke dekh rhi hai bhi mil gayi.🤣`;
+}
+
+if(num==3){
+message = `You know honestly mai humesha thora dicey rehti thi ki pata nahi jyada clingy toh nahi ho rhi isko uncomfortable na ho but ye time aate tak i stopped thinking itna jyada and i am so thankful that i did kyuki scribble day ke baad i knew i have to maintain my friendship with her.🤭`;
+}
+
+if(num==4){
+message = `Our farewell. Kya hi crazy duo lag rhe the hum dono uss din nobody even came as close as us in slaying😮‍💨. Danced like crazy. Made so many memories. Teri ladayi and we became even stronger kyuki meri jesi friend to kismat se hi milegi.🤓`;
+}
+
+document.getElementById("popup-text").innerText = message;
+document.getElementById("popup").style.display = "flex";
+
+}
+
+function closePopup(){
+document.getElementById("popup").style.display = "none";
+}
+
+function finalMessage(){
+
+let message = `bahut bakwas ho gayi ab warning hai😡 ki apna jyada dimaag lagane ki koi zarurat nahi hai and DON'T YOU DARE pull yourself back and name our bond as 'slip up'. i love youu soooooo much and i wish you all the best things in the world because you truly deserve it all🫶🏽.
+
+HAPPIEST BIRTHDAY JUHI ❤️
+STAY THE SAME FOREVER
+
+— Sachii 😋`;
+
+let popup = document.getElementById("popup");
+let text = document.getElementById("popup-text");
+
+popup.style.display = "flex";
+text.innerHTML = "";
+
+let i = 0;
+
+function typeWriter(){
+if(i < message.length){
+text.innerHTML += message.charAt(i);
+i++;
+setTimeout(typeWriter,35);
+}
+}
+
+typeWriter();
+
+}
+
+</script>
+
+<script>
+
+const canvas = document.getElementById("confetti");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const colors = ["#ff4e88","#ffd166","#06d6a0","#118ab2","#ef476f"];
+
+let confetti = [];
+
+for(let i=0;i<200;i++){
+confetti.push({
+x: Math.random()*canvas.width,
+y: Math.random()*canvas.height,
+w: Math.random()*8+4,
+h: Math.random()*8+4,
+color: colors[Math.floor(Math.random()*colors.length)],
+speed: Math.random()*3+2
+})
+}
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+confetti.forEach(c=>{
+ctx.fillStyle = c.color;
+ctx.fillRect(c.x,c.y,c.w,c.h);
+c.y += c.speed;
+
+if(c.y > canvas.height){
+c.y = -10;
+c.x = Math.random()*canvas.width;
+}
+});
+
+requestAnimationFrame(draw);
+}
+
+draw();
+
+</script>
+
+<div class="final-section">
+<h2>FINAL HEART TO HEART 💌</h2>
+
+<button class="final-button" onclick="finalMessage()">
+Click here
+</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
